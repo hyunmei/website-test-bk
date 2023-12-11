@@ -1,0 +1,95 @@
+/**
+ * Async Chat Layer - Layer to be used to pass the config data to Web Component (React, Backbone and Legacy)
+ * Based on: Async Chat Web Component Design
+ * Notes: When maintaining the library use ECMA5 compliant Javascript and no external libraries!
+ * Copyright Barclays Bank PLC 2021
+ */
+
+(function(scope) {
+  // Initialize the asyncChat global object with empty config.
+  scope.asyncChat = {
+    config: {}
+  };
+
+  // Tagging team wants specific DOM path for web component. Hence, can't use the existing logic and this new code.
+  var _getDomPathForChat = function(elem) {
+    var parents = [];
+    for (; elem && elem !== document; elem = elem.parentNode) {
+      if (elem.id || elem.name) {
+        parents.push(elem.id || elem.name);
+      } else {
+        parents.push("");
+      }
+    }
+    return parents.reverse();
+  };
+
+  var _initiateTagging = function() {
+    var elements = document.getElementsByTagName("async-web-chat");
+    var chatContainer = elements[0];
+    if (chatContainer) {
+      chatContainer.addEventListener("click", function(event) {
+        if (
+          event.target.nodeName === "BUTTON" ||
+          event.target.nodeName === "A"
+        ) {
+          window.DataLayer.pushEvent({
+            event_label: event.target.innerText || "",
+            event_type: event.target.nodeName.toLowerCase(),
+            event_domPath: event.target && _getDomPathForChat(event.target),
+            event_method: "click"
+          });
+          event.stopPropagation();
+        }
+      });
+      document.addEventListener("change", function(event) {
+        if (event.target.classList.contains("async-web-chat-input")) {
+          window.DataLayer.pushEvent({
+            event_label: event.target.value || "",
+            event_type: event.target.nodeName.toLowerCase(),
+            event_domPath: event.target && _getDomPathForChat(event.target),
+            event_method: "change"
+          });
+        }
+      });
+    }
+  };
+
+  var setConfig = function(configData) {
+    document.addEventListener("isBubbleReady", function() {
+      _initiateTagging();
+    });
+    scope.asyncChat.config = {
+      customerForeName: configData.customerForeName,
+      custID: configData.custID,
+      channelType: "AS3",
+      theme: "barclaycard",
+      topics: null,
+      URIPrefix: "/ecom/as2/api/asynchat/",
+      logUrl: "/ecom/as2/api/logevent",
+      skipBot: "true",
+      xsrf: {
+        required: true,
+        "cookie-location": "CSRF-TOKEN"
+      },
+      "z-index": 9999
+    };
+  };
+
+  // topic is an optional parameter
+  var startChat = function(event, topic) {
+    window.DataLayer.pushEvent({
+      event_label: event ? event.currentTarget.textContent : "chat",
+      event_type: "button",
+      event_method: "click"
+    });
+    window.asyncChat.chatService &&
+      window.asyncChat.chatService.startChat(topic);
+  };
+
+  var asyncChatLayer = {
+    setConfig: setConfig,
+    startChat: startChat
+  };
+  scope.AsyncChatLayer = asyncChatLayer;
+})(window);

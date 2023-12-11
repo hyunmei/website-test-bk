@@ -1,0 +1,466 @@
+/**
+ * DataLayer - Adobe DTM tagging library
+ * Based on: Barclays_SDR_Data_layer_v5.0
+ * Notes: When maintaining the library use ECMA5 compliant Javascript and no external libraries!
+ * Copyright Barclays Bank PLC 2018
+ */
+
+(function(scope) {
+  var debugMode = false,
+    debugVerbose = false,
+    dataLayerHistory = []; // record all merges into window.dataLayer
+
+  /**
+   * [Private] method to traverse DOM tree and return elements within an array
+   *
+   * @method _getDomPath
+   * @param {Object} el the target element, tpyically from event.currentTarget
+   * @return {Array} of Strings indicating the DOM elements
+   */
+  var _getDomPath = function(el) {
+    var stack = [];
+    while (el.parentNode !== null) {
+      var sibCount = 0;
+      var sibIndex = 0;
+      for (var i = 0; i < el.parentNode.childNodes.length; i++) {
+        var sib = el.parentNode.childNodes[i];
+        if (sib.nodeName === el.nodeName) {
+          if (sib === el) {
+            sibIndex = sibCount;
+          }
+          sibCount++;
+        }
+      }
+      if (el.hasAttribute("id") && el.id !== "") {
+        stack.unshift(el.nodeName.toLowerCase() + "#" + el.id);
+      } else if (sibCount > 1) {
+        stack.unshift(el.nodeName.toLowerCase() + ":eq(" + sibIndex + ")");
+      } else {
+        stack.unshift(el.nodeName.toLowerCase());
+      }
+      el = el.parentNode;
+    }
+
+    return stack.slice(1); // removes the html element
+  };
+
+  /**
+   * [Private] method to traverse DOM tree and append CSS elements to a string
+   *
+   * @method _getCssPath
+   * @param {Object} el the target element, tpyically from event.currentTarget
+   * @return {String} string of css elements separated by a chevron
+   */
+  var _getCssPath = function(el) {
+    if (!(el instanceof Element)) return;
+    var path = [];
+    while (el.nodeType === Node.ELEMENT_NODE) {
+      var selector = el.nodeName.toLowerCase();
+      if (el.id) {
+        selector += "#" + el.id;
+      } else {
+        var sib = el,
+          nth = 1;
+        while (
+          sib.nodeType === Node.ELEMENT_NODE &&
+          (sib = sib.previousSibling) &&
+          nth++
+        );
+        selector += ":nth-child(" + nth + ")";
+      }
+      path.unshift(selector);
+      el = el.parentNode;
+    }
+    return path.join(">");
+  };
+
+  /**
+   * [Private] method, ECMA5 friendly version of Object.assign()
+   *
+   * @method _mergeObjects
+   * @param {Object} optional number of n objects to be merged
+   * @return {Object} merged object
+   */
+  var _mergeObjects = function() {
+    var resObj = {};
+    for (var i = 0; i < arguments.length; i += 1) {
+      var obj = arguments[i],
+        keys = Object.keys(obj);
+
+      for (var j = 0; j < keys.length; j += 1) {
+        resObj[keys[j]] = obj[keys[j]];
+      }
+    }
+    return resObj;
+  };
+
+  /**
+   * [Private] method used in mergeObjectsDeep()
+   * as opposed to ECMA6 Object.assign(output, { [key]: source[key] });
+   *
+   * @method _defineProperty
+   * @param {Object} obj
+   * @param {Object} key
+   * @param {Object} value
+   * @return {Object} output of the three inputs, i.e a key-value pair updated
+   */
+  var _defineProperty = function(obj, key, value) {
+    if (key in obj) {
+      Object._defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  };
+
+  /**
+   * [Private] mehtod used in mergeObjectsDeep()
+   *
+   * @method _isObject
+   * @param {Object} item to be evaluated
+   * @return {Boolean} was the parameter an Object
+   */
+  var _isObject = function(item) {
+    return item && typeof item === "object" && !Array.isArray(item);
+  };
+
+  /**
+   * [Private] method, ECMA5 friendly function that will deep copy and object (and its nested objects)
+   *
+   * @method _mergeObjectsDeep
+   * @param {Object} target object to be merged
+   * @param {Object} source object to be merged
+   * @return {Object} merged object
+   */
+  var _mergeObjectsDeep = function(target, source) {
+    var output = _mergeObjects({}, target);
+    Object.keys(source).forEach(function(key) {
+      if (_isObject(source[key])) {
+        if (!(key in target)) {
+          output = _mergeObjects(output, _defineProperty({}, key, source[key]));
+        } else {
+          output[key] = _mergeObjectsDeep(target[key], source[key]);
+        }
+      } else {
+        output = _mergeObjects(output, _defineProperty({}, key, source[key]));
+      }
+    });
+    return output;
+  };
+
+  /**
+   * [Public] method, set debug mode to true/false to output console logs, default to false
+   *
+   * @method debugMode
+   * @param {Boolean} mode value of debug mode
+   * @param {Boolean} verbose do we want objects to be tabled?
+   * @return {Boolean} false
+   */
+  var debug = function(mode, verbose) {
+    if (typeof arguments[0] !== "undefined") {
+      this.debugMode = mode;
+    }
+    if (typeof arguments[1] !== "undefined") {
+      this.debugVerbose = verbose;
+    }
+    return { debugMode: this.debugMode, debugVerbose: this.debugVerbose };
+  };
+
+  /**
+   * [Public] method: pushEvent is tied to the events[] within the window.digitalData object
+   *
+   * Examples:
+   * pushEvent();
+   * pushEvent(event);
+   * pushEvent({ section: "header", subSection: "header", method: "link", alt: "homepage scroll link" });
+   * pushEvent(event, { section: "header", subSection: "header", method: "link", alt: "homepage scroll link" });
+   *
+   * @method pushEvent
+   * @param {Object} event (optional - first if used) use generic Javascript events object to extract data
+   * @param {Object} newEvent (optional - first or second) merge attributes of newEvent object
+   * @return {Boolean} false
+   */
+
+  var pushEvent = function(eventObject, eventOverrides) {
+    // defualt event structure
+    var newEvent = {
+      event_timestamp_utc: new Date().toISOString(),
+      event_timestamp_unix: new Date().getTime(),
+      event_applicationid: "",
+      event_applicationtype: "",
+      event_error_code: "",
+      event_error_form_fields: "",
+      event_deeplink_start: "",
+      event_deeplink_success: "",
+      event_label: "",
+      event_destination: "",
+      event_section: "",
+      event_value: "",
+      event_alt: "",
+      event_cssSelector: "",
+      event_domPath: "",
+      event_campaign: "",
+      event_method: "",
+      event_type: "click"
+    };
+
+    // is the first arg the eventObject
+    if (
+      typeof arguments[0] !== "undefined" &&
+      typeof arguments[0].currentTarget !== "undefined"
+    ) {
+      newEvent.event_cssSelector = _getCssPath(eventObject.currentTarget);
+      newEvent.event_domPath = _getDomPath(eventObject.currentTarget);
+      newEvent.event_applicationtype = eventObject.type;
+      newEvent.event_destination =
+        typeof eventObject.currentTarget.attributes.href !== "undefined"
+          ? eventObject.currentTarget.attributes.href.nodeValue
+          : "";
+      newEvent.event_label =
+        typeof eventObject.currentTarget.text !== "undefined"
+          ? eventObject.currentTarget.text.replace(/\s+/g, " ").trim()
+          : ""; // remove carriage returns and whitespace
+    }
+
+    // is the first or second arg the eventOverride object
+    if (
+      typeof arguments[0] !== "undefined" &&
+      typeof arguments[0].currentTarget === "undefined"
+    ) {
+      newEvent = _mergeObjects(newEvent, arguments[0]);
+    } else if (typeof arguments[1] !== "undefined") {
+      newEvent = _mergeObjects(newEvent, eventOverrides);
+    }
+
+    // ensure digitalData object exists
+    if (typeof window.digitalData === "undefined") {
+      this.init();
+    }
+    // Safety check: map old DTM values to new Tealium dataLayer values
+    if (newEvent.label && newEvent.event_label === "") {
+      newEvent.event_label = newEvent.label;
+    }
+    if (newEvent.type && newEvent.event_type === "") {
+      newEvent.event_type = newEvent.type;
+    }
+    if (newEvent.subSection) {
+      newEvent.event_section =
+        newEvent.event_section + ":" + newEvent.subSection;
+    }
+    delete newEvent.label;
+    delete newEvent.subSection;
+    delete newEvent.section;
+    delete newEvent.type;
+
+    // Trim event label to remove spaces
+    newEvent.event_label = newEvent.event_label && newEvent.event_label.replace(/\s/g, '')
+
+    // Copy in event
+    window.digitalData = _mergeObjectsDeep(window.digitalData, newEvent);
+    if (window.utag) {
+      window.utag.link(window.digitalData);
+    }
+
+    // if avaialble, invoke the callback function
+    if (typeof this.callBackFunction === "function") {
+      this.callBackFunction();
+    }
+
+    if (this.debugMode) {
+      console.group("[Data Layer] pushEvent()");
+      if (this.debugVerbose) {
+        console.table(newEvent);
+        //console.info("[Data Layer] event:", JSON.stringify(newEvent, null, 2)); // updated attributes
+      } else {
+        var tableEvent = {
+          event_applicationtype: newEvent.event_applicationtype,
+          event_section: newEvent.event_section,
+          //subSection: newEvent.subSection,
+          event_label: newEvent.event_label,
+          event_method: newEvent.event_method,
+          event_destination: newEvent.event_destination,
+          //tool: newEvent.tool,
+          event_value:
+            newEvent.event_value !== null ? newEvent.event_value : "",
+          //errorType: newEvent.error.type,
+          event_error_form_fields: newEvent.event_error_form_fields,
+          event_error_code:
+            typeof newEvent.event_error_code !== "undefined"
+              ? newEvent.event_error_code
+              : "",
+          event_timestamp_unix: newEvent.event_timestamp_unix.toString()
+        };
+        console.table(tableEvent); // updated attributes
+        //console.info("[Data Layer] event: ", newEvent); // updated attributes
+      }
+      console.info("[Data Layer]", window.digitalData); // the new data layer object
+      console.groupEnd();
+    }
+  };
+
+  /**
+   * [Public] mehtod to initialise tagging object, will intialise object if any event is pushed to a non-existant object
+   *
+   * Examples:
+   * init();
+   * init({user: {accountsHeld: { total: 2, itemised: "ML"}}});
+   * init({user: {accountsHeld: { total: 2, itemised: "ML"}}, someFunction()});
+   *
+   * @method init
+   * @param {Object} overrides (optional) merge attributes into window.digitalData
+   * @param {function} eventCallback (optional) callback function to be executed after each pushEvent()
+   * @return {Boolean} obj
+   */
+  var init = function(overrides, eventCallback) {
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function decodeAndParseURIEncodedCookie(cookie) {
+      return cookie && JSON.parse(decodeURIComponent(cookie));
+    }
+
+    function getCCPCookie() {
+      var CCPCookie = readCookie("CCP");
+
+      var decodedCCP = decodeAndParseURIEncodedCookie(CCPCookie);
+
+      return decodedCCP;
+    }
+
+    var CCP = getCCPCookie();
+
+    var basicStructure = {
+      device_build_id:
+        document.getElementById("buildVersion") === null
+          ? ""
+          : document.getElementById("buildVersion").innerHTML,
+      device_os: window.navigator.platform,
+      device_os_version: window.navigator.userAgent,
+      device_name: window.navigator.userAgent,
+      device_type: "",
+      user_optin_performance: (CCP && CCP.publicuser.cat2 === "on") || false,
+      user_optin_functional: (CCP && CCP.publicuser.cat3 === "on") || false,
+      user_optin_targeting: (CCP && CCP.publicuser.cat4 === "on") || false,
+      user_newReturning: "",
+      user_hashed_id: "",
+      user_hashed_id_business: "",
+      user_registered: "",
+      user_accessibility: "",
+      user_accounts_held: "",
+      user_accounts_held_total: "",
+      user_accounts_held_3p: "",
+      user_accounts_held_3p_total: "",
+      user_customer_segment: "Personal",
+      user_eligible_products: "",
+      user_login_success:
+        (window.sessionStorage && window.sessionStorage.getItem("proxyc")) ||
+        null,
+      user_browsing_as: "Personal",
+      user_login_method: "",
+      user_login_route: "",
+      page_platform: "AS3",
+      page_channel_id: "AS3",
+      page_name: "Bcard:onl:",
+      page_level1: "Bcard",
+      page_level2: "onl",
+      page_level3: "",
+      page_level4: "",
+      page_version: "",
+      page_url_protocol: location.protocol.substring(
+        0,
+        location.protocol.length - 1
+      ), // protocol with trailing semi-colon trimmed
+      page_url_host: location.host,
+      page_url_path: location.pathname,
+      page_url_querystring: location.search,
+      page_url_hash: location.hash,
+      page_url_content: "",
+      page_template_id: "",
+      page_id: "",
+      page_breadcrumb: "",
+      page_title: document.title,
+      page_cmsPageName: "",
+      page_cmsPath: "",
+      page_search_term: "",
+      page_search_type: "",
+      page_referring_url: "",
+      event_type: "screenload",
+      page_impressions: "",
+      event_timestamp_utc: new Date().toISOString(),
+      event_timestamp_unix: new Date().getTime(),
+      event_applicationid: "",
+      event_applicationtype: "",
+      event_error_code: "",
+      event_error_form_fields: "",
+      event_deeplink_start: "",
+      event_deeplink_success: "",
+      event_label: "",
+      event_destination: "",
+      event_section: "",
+      event_value: "",
+      event_alt: "",
+      event_cssSelector: "",
+      event_domPath: "",
+      event_campaign: ""
+    };
+
+    if (typeof overrides !== "undefined") {
+      dataLayerHistory.push(arguments[0]); //update the data layer history for a relaod later
+      basicStructure = _mergeObjectsDeep(basicStructure, arguments[0]);
+    }
+
+    // has a callback been specified for pushEvent()?
+    if (typeof eventCallback === "function") {
+      this.callBackFunction = eventCallback;
+    }
+
+    window.digitalData = basicStructure;
+    if (window.utag) {
+      window.utag.view(window.digitalData);
+    }
+
+
+    if (this.debugMode) {
+      console.group("[Data Layer] init()");
+      if (this.debugVerbose) {
+        console.info(
+          "[Data Layer] updated:",
+          JSON.stringify(arguments[0], null, 2)
+        ); // updated attributes
+      } else {
+        var tableEvent = {
+          pageName: basicStructure.page_name
+        };
+        console.table(tableEvent); // updated attributes
+        console.info("[Data Layer] updated:", arguments[0]); // updated attributes
+      }
+      console.info("[Data Layer] history:", dataLayerHistory);
+      console.info("[Data Layer]", window.digitalData); // the new data layer object
+      console.groupEnd();
+    }
+  };
+
+  // expose public functions
+  var DataLayer = {
+    init: init,
+    pushEvent: pushEvent,
+    debug: debug
+  };
+  scope.DataLayer = DataLayer;
+
+  // initialise data layer on script load to ensure DTM doesnt error (by accessing an unavailable digitalData attribute)
+  init();
+})(window);
